@@ -24,7 +24,7 @@
 		<p>Click the button to get your position.</p>
 		
 
-	  <input type="submit" value="Submit" class="button button-big button-fill color-green" onclick="Javascript:getLocation()"/>
+	  <input type="submit" value="Get Your Current Location" class="button button-big button-fill color-green" onclick="Javascript:getLocation()"/>
  
 	  
 	  
@@ -36,7 +36,7 @@
               <div class="item-inner"> 
                 <div class="item-title label">Name</div>
                 <div class="item-input">
-                  <input type="text" placeholder="Your name"/>
+                  <input type="text" id ="name" placeholder="Your name"/>
                 </div>
               </div>
             </div>
@@ -47,7 +47,7 @@
               <div class="item-inner"> 
                 <div class="item-title label">E-mail</div>
                 <div class="item-input">
-                  <input type="email" placeholder="E-mail"/>
+                  <input type="email" id="email" placeholder="E-mail"/>
                 </div>
               </div>
             </div>
@@ -59,7 +59,7 @@
               <div class="item-inner"> 
                 <div class="item-title label">Phone</div>
                 <div class="item-input">
-                  <input type="tel" placeholder="Phone"/>
+                  <input type="tel" id="phone" placeholder="Phone"/>
                 </div>
               </div>
             </div>
@@ -68,20 +68,51 @@
             <div class="item-content">
               <div class="item-media"><i class="icon icon-form-comment"></i></div>
               <div class="item-inner"> 
-                <div class="item-title label">Textarea</div>
+                <div class="item-title label">Short Description</div>
                 <div class="item-input">
-                  <textarea></textarea>
+                  <textarea id="desc" placeholder="Type Description Here"></textarea>
                 </div>
               </div>
             </div>
           </li>
+		  <li>
+            <div class="item-content">
+              <div class="item-inner"> 
+                <div class="item-title label">Upload Photo (Opt)</div>
+                  <input type="file" id="file">
+              </div>
+            </div>
+          </li>
+		  <li>
+            <div class="item-content">
+              <div class="item-inner"> 
+                <div class="item-title label">Road Name (opt)</div>
+                <div class="item-input">
+                  <input type="text" id="road" placeholder="Road Name"/>
+                </div>
+              </div>
+            </div>
+          </li>
+		  
+		  <li>
+			<div class="item-content">
+				<div class="item-media"><i class="icon icon-form-calendar"></i></div>
+					<div class="item-inner">
+						<div class="item-title label">Date</div>
+						<div class="item-input">
+							<input type="date" placeholder="Date" value="2016-05-05" id="date">
+						</div>
+					</div>
+				</div>
+		  </li> 
+					
         </ul>
       </div>
       <div class="content-block">
         <div class="row">
           <div class="col-50"><a href="#" class="button button-big button-fill color-red">Cancel</a></div>
           <div class="col-50">
-            <input type="submit" value="Submit" class="button button-big button-fill color-green"/>
+            <input type="submit" value="Submit" class="button button-big button-fill color-green" onclick="Javascript:save()"/>
           </div>
         </div>
       </div>

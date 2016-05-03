@@ -37,7 +37,8 @@ myApp.onPageInit('login-screen', function (page) {
 
 
 
-
+//variable that gets the current location
+//using lantitude and longitude
 var x = document.getElementById("demo");
 function getLocation() {
     if (navigator.geolocation) {
@@ -47,6 +48,9 @@ function getLocation() {
     }
 }
 
+//function that uses the lantitude and longitude
+//to display the current location into a map
+//and displays it on the app
 function showPosition(position) {
     lat = position.coords.latitude;
     lon = position.coords.longitude;
@@ -66,8 +70,10 @@ function showPosition(position) {
     var marker = new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
 	
 	console.log(lat + " - " + lon);
+	
+	return latlon;
 }
-
+//funtion that identifies any error with the map
 function showError(error) {
     switch(error.code) {
         case error.PERMISSION_DENIED:
@@ -87,7 +93,30 @@ function showError(error) {
 
 
 
-
+//function storing data into localstorage
+function save()
+{
+	var LongLant = latlon;
+	/* var latit = coords.latitude;
+	var longi = coords.longitude; */
+	var name = document.getElementById("name").value;
+	var email = document.getElementById("email").value;
+	var phone = document.getElementById("phone").value;
+	var desc = document.getElementById("desc").value;
+	
+	var road = document.getElementById("road").value;
+	var date = document.getElementById("date").value;
+	
+	myApp.alert("Successfull");
+	
+	console.log("Position: " + LongLant
+				+ "\nname: " + name
+				+ "\nemail: " + email
+				+ "\nphone: " + phone
+				+ "\ndesc: " + desc
+				+ "\nroad: " + road
+				+ "\ndate: " + date);
+}
 
 
 
