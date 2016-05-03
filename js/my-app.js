@@ -93,6 +93,50 @@ function showError(error) {
 
 
 
+/* var fileInput = document.getElementById('file');
+fileInput.addEventListener('change', function(e)
+{
+	//create a file reader
+	var reader = new FileReader();
+	reader.onload = function()
+	{
+		//save image to local storage (img)
+		localStorage.img = reader.result;
+	};
+	var file = e.target.files[0];
+	reader.readAsDataURL(file);
+});
+
+function createImg(dataUri)
+{
+	var img = document.createElement('img');
+	img.src = dataUri;
+	img.className = "imgPreview";
+	document.body.appendChild(img);
+}
+
+var showbutton = document.getElementById('showimage');
+showbutton.addEventListener('click', function(e)
+{
+	showPhoto();
+});
+
+function showPhoto()
+{
+	for ( var i = 0; i < localStorage.length; ++i ) {
+	if ( localStorage.key(i) == 'img')
+	{
+		createImg(localStorage.getItem(localStorage.key(i)));
+	}
+}
+}
+ */
+
+
+
+
+
+
 //function storing data into localstorage
 function save()
 {
