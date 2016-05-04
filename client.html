@@ -1,0 +1,33 @@
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<!-- <script src="jquery-migrate-1.2.1.min.js"></script> -->
+
+<hr>
+What is your favourite browser?<br>
+chrome, ie, edge, firefox<br>
+<input type="text" placeholder="browser" id="browsername" /><br></br>
+<input type="text" placeholder="Name" id="name" /></br></br>
+<input type="submit" id="btn" value="Send data to server">
+
+
+<script>
+
+$('#btn').on('click', function(){
+  $.ajax({
+    type: 'POST',
+    url: 'http://localhost:3000/test',
+    data:
+	{
+		favBrowser: $('#browsername').val(),
+		favname: $("#name").val(),
+	},
+    success: function(cb){
+      console.log('sent data to server');
+      console.log(cb);
+    },
+    error: function(){
+      alert('error');
+    }
+  });
+});
+
+</script>
