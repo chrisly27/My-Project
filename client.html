@@ -11,8 +11,8 @@
 
 
 </br></br></br>
-<input type="text" id ="me" placeholder="Latitude"/></br></br>
-<input type="text" id ="tu" placeholder="Longitude"/></br></br>
+<input type="text" id ="la" placeholder="Latitude"/></br></br>
+<input type="text" id ="lo" placeholder="Longitude"/></br></br>
 
 Name</br>
 <input type="text" id ="name" placeholder="Your name"/></br></br>
@@ -47,8 +47,8 @@ $('#submit').on('click', function(){
 		desc: $("#desc").val(),
 		road: $("#road").val(),
 		date: $("#date").val(),
-		latit: $("#me").val(),
-		longi: $("#tu").val()
+		latit: $("#la").val(),
+		longi: $("#lo").val()
 	},
     success: function(cb){
       console.log('sent data to server');
@@ -63,8 +63,8 @@ $('#submit').on('click', function(){
 
 var x = document.getElementById("demo");
 
-var m;
-var b;
+var lt;
+var lg;
 
 function getLocation() {
     if (navigator.geolocation) {
@@ -76,8 +76,8 @@ function getLocation() {
 
 function showPosition(position) {
 	
-	m = document.getElementById("me").value = innerHTML = position.coords.latitude;
-	b = document.getElementById("tu").value = innerHTML = position.coords.longitude;
+	lt = document.getElementById("la").value = innerHTML = position.coords.latitude;
+	lg = document.getElementById("lo").value = innerHTML = position.coords.longitude;
 }
 
 </script>
