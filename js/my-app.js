@@ -20,9 +20,9 @@ var $$ = Dom7;
 var mainView = myApp.addView('.view-main',{
 	//enable dynamic Navbar
 	dynamicNavbar: true,
-}); */
+});
 
-/*  var myApp = new Framework7();
+  var myApp = new Framework7();
 myApp.onPageInit('login-screen', function (page) {
   var pageContainer = $$(page.container);
   pageContainer.find('.list-button').on('click', function () {
@@ -33,13 +33,17 @@ myApp.onPageInit('login-screen', function (page) {
       // mainView.goBack();
     });
   });
-}); */   
+});  */ 
 
 
 
 //variable that gets the current location
 //using lantitude and longitude
 var x = document.getElementById("demo");
+var lt;
+var lg;
+
+
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showError);
@@ -69,9 +73,9 @@ function showPosition(position) {
     var map = new google.maps.Map(document.getElementById("mapholder"), myOptions);
     var marker = new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
 	
-	console.log(lat + " - " + lon);
-	
-	return latlon;
+		
+	lt = document.getElementById("la").value = innerHTML = position.coords.latitude;
+	lg = document.getElementById("lo").value = innerHTML = position.coords.longitude;
 }
 //funtion that identifies any error with the map
 function showError(error) {
@@ -92,6 +96,73 @@ function showError(error) {
 }
 
 
+function saveMECrisly()
+{
+	$.ajax(
+	{
+		type: 'POST',
+		url: 'http://localhost:8080/form',
+		data:
+	{
+		name: $("#name").val(),
+		email: $("#email").val(),
+		phone: $("#phone").val(),
+		desc: $("#desc").val(),
+		road: $("#road").val(),
+		date: $("#date").val(),
+		latit: $("#la").val(),
+		longi: $("#lo").val()
+	},
+    success: function(cb)
+	{
+		console.log('sent data to server');
+		alert(cb);
+    },
+    error: function()
+	{
+		alert('error');
+    }
+	});
+}
+
+
+$('#submit').on('click', function()
+{
+	$.ajax(
+	{
+		type: 'POST',
+		url: 'http://localhost:8080/form',
+		data:
+	{
+		name: $("#name").val(),
+		email: $("#email").val(),
+		phone: $("#phone").val(),
+		desc: $("#desc").val(),
+		road: $("#road").val(),
+		date: $("#date").val(),
+		latit: $("#la").val(),
+		longi: $("#lo").val()
+	},
+    success: function(cb)
+	{
+		console.log('sent data to server');
+		alert(cb);
+    },
+    error: function()
+	{
+		alert('error');
+    }
+	});
+});
+
+
+
+
+
+
+
+  
+  
 
 /* var fileInput = document.getElementById('file');
 fileInput.addEventListener('change', function(e)
@@ -136,13 +207,13 @@ function showPhoto()
 
 
 
-
+/* 
 //function storing data into localstorage
 function save()
 {
 	var LongLant = latlon;
 	/* var latit = coords.latitude;
-	var longi = coords.longitude; */
+	var longi = coords.longitude; 
 	var name = document.getElementById("name").value;
 	var email = document.getElementById("email").value;
 	var phone = document.getElementById("phone").value;
@@ -173,4 +244,4 @@ function save()
 function test()
 {
 	console.log("test successfully passed");
-}
+} */
