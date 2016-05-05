@@ -1,33 +1,91 @@
 <script src="node_modules/jquery/dist/jquery.js"></script>
 <!-- <script src="jquery-migrate-1.2.1.min.js"></script> -->
+<!-- Path to your app js-->
+<script type="text/javascript" src="js/my-app.js"></script>
 
-<hr>
-What is your favourite browser?<br>
-chrome, ie, edge, firefox<br>
-<input type="text" placeholder="browser" id="browsername" /><br></br>
-<input type="text" placeholder="Name" id="name" /></br></br>
-<input type="submit" id="btn" value="Send data to server">
+
+<button onclick="getLocation()">Current Location</button>
+
+<p id="demo"></p>
+
+</br>
+</br>
+
+<p id="lat"></p>
+<p id="lon"></p>
+
+
+
+Name</br>
+<input type="text" id ="name" placeholder="Your name"/></br></br>
+E-mail</br>
+<input type="email" id="email" placeholder="E-mail"/></br></br>
+Phone</br>
+<input type="tel" id="phone" placeholder="Phone"/></br></br>
+Short Description</br>
+<textarea id="desc" placeholder="Type Description Here"></textarea></br></br>
+Road Name (opt)</br>
+<input type="text" id="road" placeholder="Road Name"/></br></br>
+Date</br>
+<input type="date" placeholder="Date" value="2016-05-05" id="date"></br></br>
+
+<input type="submit" id="submit" value="Submit"/></br></br>
+
+
+
 
 
 <script>
 
-$('#btn').on('click', function(){
+$('#submit').on('click', function(){
   $.ajax({
     type: 'POST',
-    url: 'http://localhost:3000/test',
+    url: 'http://localhost:3000/form',
     data:
 	{
-		favBrowser: $('#browsername').val(),
-		favname: $("#name").val(),
+		name: $("#name").val(),
+		email: $("#email").val(),
+		phone: $("#phone").val(),
+		desc: $("#desc").val(),
+		road: $("#road").val(),
+		date: $("#date").val(),
+		latit: $("#la").val(),
+		longi: $("#lo").val(),
 	},
     success: function(cb){
       console.log('sent data to server');
-      console.log(cb);
+      alert(cb);
     },
     error: function(){
       alert('error');
     }
   });
 });
+
+
+
+
+var x = document.getElementById("demo");
+var la = document.getElementById("lat");
+var lo = document.getElementById("lon");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+	
+	la.innerHTML = position.coords.latitude;
+	lo.innerHTML = position.coords.longitude;
+}
+
+
+
 
 </script>

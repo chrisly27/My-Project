@@ -1,50 +1,41 @@
 var express = require("express");
 var cors = require("cors");
+
+
+
+/* var sqlite3 = require(sqlite3).verbose();
+var db = new sqlite3.Database("formDB"); */
+
+
+
 var bodyparser = require("body-parser");
 var app = express();
 
 app.use(cors());
 app.use(bodyparser.urlencoded());
 
+/* db.serialise(function()
+{
+	db.run("CREATE TABLE IF NOT EXISTS form (favname TEXT)");
+	
+	db.run("INSERT INTO from (favname) VALUES (?)")
+} */
 app.get("/", function(req, res)
 {
-	res.send("<h3>Let Smash this down now</h3>");
+	res.send("<h3>New World begins here</h3>");
 });
 
 
-/* app.post("/test", function(req, res)
+app.post("/form", function(req, res)
 {
 	console.log(req.body);
-	
-	//checking what the user submitted...
-	if (req.body.favBrowser == "chrome")
-	{
-		res.send("Chrome!!!");
-		if (req.body.favname == "crisly")
-		{
-			res.send("I am genius");
-		}
-		else
-		{
-			res.send("You are alien from Italy")
-		}
-	}
-	else
-	{
-		res.send("Not Chrome");
-	}
-}); */
-
-app.post("/test", function(req, res)
-{
-	console.log(req.body);
-	if (req.body.favname == "crisly")
+	if (req.body.latit == "")
 	{
 		res.send("I am genius");
 	}
 	else
 	{
-		res.send("You are alien from Italy")
+		res.send("You are: " + req.body.latit)
 	}
 });
 

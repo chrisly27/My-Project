@@ -1,4 +1,4 @@
-//lets register template7 helper so we can pass json string in links
+/* //lets register template7 helper so we can pass json string in links
 Template7.registerHelper('json_stringify', function(context){
 	return JSON.stringify(context);
 });
@@ -20,7 +20,7 @@ var $$ = Dom7;
 var mainView = myApp.addView('.view-main',{
 	//enable dynamic Navbar
 	dynamicNavbar: true,
-});
+}); */
 
 /*  var myApp = new Framework7();
 myApp.onPageInit('login-screen', function (page) {
